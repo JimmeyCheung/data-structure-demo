@@ -20,7 +20,7 @@
 
 <h2>（2）算法篇</h2>
 
-<h3>demo11: 排序算法：冒泡，选择，插入，归并，快速</h3>
-<a href="demo11/index.html" target="_blank">demo11入口</a>
+<h3>demo06: 排序算法：冒泡，选择，插入，归并，快速</h3>
+<a href="demo06/index.html" target="_blank">demo06入口</a>
 
 
