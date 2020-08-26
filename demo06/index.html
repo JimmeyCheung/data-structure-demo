@@ -106,7 +106,7 @@
       return result;
     };
     //--------------------【5】快速排序[复杂度O(n~2)]------------------------------
-    this.quickSort = function quickSort() {
+    this.quickSort = function () {
       const sort = (arr = []) => {
         if (arr.length < 2) {
           return arr;
@@ -123,6 +123,34 @@
           }
         }
         return sort(leftArr).concat(midValue).concat(sort(rightArr));
+      };
+      array = sort(array);
+    };
+    //--------------------【6】计数排序[复杂度O(n+k)]------------------------------
+    this.countSort = function () {
+      const sort = (arr = []) => {
+        if (arr.length < 2) {
+          return arr;
+        }
+        const hashTable = {}; // 用于计数数字出现的次数，key为数值，value为次数
+        let minVal = 0;
+        let maxVal = 0;
+        const result = [];
+        for (let i = 0; i < arr.length; i++) {
+          const value = arr[i];
+          const times = hashTable[value];
+          hashTable[value] = times ? times + 1 : 1;
+          minVal = minVal <= value ? minVal : value;
+          maxVal = maxVal >= value ? maxVal : value;
+        }
+        for (let i = minVal; i <= maxVal; i++) {
+          let times = hashTable[i] || 0;
+          while (times > 0) {
+            result.push(i);
+            times--;
+          }
+        }
+        return sort;
       };
       array = sort(array);
     };
@@ -157,7 +185,10 @@
   // arr.mergeSort();
   // console.log("归并排序:"+arr.print());   //0->1->2->3->4->5->6->7->8->9
 
-  //++++++++++++++++++++++【4】调用快速排序+++++++++++++++++++++++++++++
+  //++++++++++++++++++++++【5】调用快速排序+++++++++++++++++++++++++++++
   // arr.quickSort();
   // console.log("快速排序:"+arr.print());   //0->1->2->3->4->5->6->7->8->9
+  //++++++++++++++++++++++【6】调用计数排序+++++++++++++++++++++++++++++
+  // arr.countSort();
+  // console.log("计数排序:"+arr.print());   //0->1->2->3->4->5->6->7->8->9
 </script>
